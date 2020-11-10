@@ -19,7 +19,7 @@ PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,vendor/apps/GoogleCamera/v
 
 VENDOR_PATH := vendor/apps/GoogleCamera
 
-BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
+BOARD_VENDOR_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 
 PRODUCT_PACKAGES += \
     GoogleCamera
