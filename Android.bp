@@ -1,0 +1,37 @@
+prebuilt_etc_xml {
+	name: "googlecamera-permissions.xml",
+    sub_dir: "permissions",
+	src: "prebuilt/product/etc/permissions/googlecamera-permissions.xml",
+	product_specific: true,
+}
+
+prebuilt_etc_xml {
+    name: "GoogleCamera_6gb_or_more_ram.xml",
+    sub_dir: "sysconfig",
+    src: "prebuilt/product/etc/sysconfig/GoogleCamera_6gb_or_more_ram.xml",
+    filename_from_src: true,
+    product_specific: true,
+}
+
+prebuilt_etc_xml {
+    name: "calibration_cad.xml",
+    src: "prebuilt/product/etc/calibration_cad.xml",
+    filename_from_src: true,
+    product_specific: true,
+}
+
+android_app_import {
+	name: "GoogleCamera",
+	apk: "prebuilt/product/app/GoogleCamera/GoogleCamera.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	product_specific: true,
+	required: [
+		"googlecamera-permissions.xml",
+		"GoogleCamera_6gb_or_more_ram.xml",
+		"calibration_cad.xml",
+	],
+    overrides: ["Camera2", "Snap", "MiuiCamera", "SnapdragonCamera"],
+}

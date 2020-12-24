@@ -1,4 +1,4 @@
-# Copyright (C) 2018 The LineageOS Project
+# Copyright (C) 2020 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,10 +14,10 @@
 
 ifeq ($(TARGET_DEVICE),$(filter $(TARGET_DEVICE),chiron sagit))
 
-PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,vendor/apps/GoogleCamera/system,system)
-PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,vendor/apps/GoogleCamera/vendor,$(TARGET_COPY_OUT_VENDOR))
-
 VENDOR_PATH := vendor/apps/GoogleCamera
+
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(VENDOR_PATH)/prebuilt/product/app/GoogleCamera/lib,$(TARGET_COPY_OUT_PRODUCT)/app/GoogleCamera/lib)
 
 BOARD_VENDOR_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 
