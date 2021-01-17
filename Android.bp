@@ -13,6 +13,13 @@ prebuilt_etc_xml {
     product_specific: true,
 }
 
+prebuilt_etc_xml {
+    name: "calibration_cad.xml",
+    src: "prebuilt/product/etc/calibration_cad.xml",
+    filename_from_src: true,
+    product_specific: true,
+}
+
 android_app_import {
 	name: "GoogleCamera",
 	apk: "prebuilt/product/app/GoogleCamera/GoogleCamera.apk",
@@ -24,6 +31,7 @@ android_app_import {
 	required: [
 		"googlecamera-permissions.xml",
 		"GoogleCamera_6gb_or_more_ram.xml",
+		"calibration_cad.xml",
 	],
     overrides: ["Camera2", "Snap", "MiuiCamera", "SnapdragonCamera"],
 }
